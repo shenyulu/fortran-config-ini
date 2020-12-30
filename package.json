@@ -1,0 +1,62 @@
+{
+	"name": "fortran-config-ini",
+	"displayName": "My Fortran Setting",
+	"description": "The fortran project configuration of initialization.",
+	"version": "0.0.2",
+	"engines": {
+		"vscode": "^1.47.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "image/icon.png",
+	"activationEvents": [
+        "onCommand:fortran-config-ini.inisetting"
+	],
+	"publisher": "shenyulu",
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [{
+            "command": "fortran-config-ini.inisetting",
+			"title": "添加Fortran 项目配置文件",
+			"icon":{
+				"light":"icon\\AddTest_16x_light.svg",
+				"dark": "icon\\AddTest_16x_dark.svg"
+			}
+		}],
+		"keybindings":[
+			{
+				"command": "fortran-config-ini.inisetting",
+				"key": "ctrl+f10",
+				"when": "editorTextFocus"
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"when":"resourceLangId == fortran-modern || resourceLangId == fortran",
+					"command": "fortran-config-ini.inisetting",
+					"group": "navigation"
+					
+				}
+			 ]
+			}
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "yarn run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+        "@types/vscode": "^1.47.0",
+        "@types/glob": "^7.1.1",
+        "@types/mocha": "^7.0.2",
+        "@types/node": "^13.11.0",
+        "eslint": "^6.8.0",
+        "glob": "^7.1.6",
+		"mocha": "^7.1.2",
+        "typescript": "^3.8.3",
+        "vscode-test": "^1.3.0"
+    }
+
+}
